@@ -70,3 +70,11 @@ trait OverFive extends IntQueue {
 class MyQueue extends BasicIntQueue with OverFive with Incrementing with Doubling
 
 // how is this different than multiple inheritance?  With multiple inheritance _super_ is defined by where it is called, but wiht traits the method called is determined by a _linearization_ of the classes and traits that are mixed into a class.  This enables the stacking of modifications described in the previous section
+
+// WHEN TO USE
+// Concrete class - if the behavior is not going to be reused
+// Trait - if it _might_ be reused in multiple unrelated classes (only traits can be mixed into different parts of the hierarchy)
+// Abstract Class - if you want to inherit from Java code.  Traits do not have a close Java analog so it tends to be awkward to inherit a trait from a Java class whereas inheriting from a Scala class is exactly like inheriting from a Java class.  Exception: a Scala trait with only abstract members translates _directly_ into a Java interface, so you should feel free to define such traits even if you expect Java code to inherit from it.
+// Abstract class - if you plan to distribute it in compiled form, expecting outside groups to write classes inheriting from it.  The issue is that when a traint gains or loses a member, any class that inherit from it must be recompiled, even if they have not changed.  If outside clients will only call into the behavior instead of inheriting from it then using a trait is fine.
+// Class(es) - if efficiency is very important.  Most Java runtimes make a virtual method invocation of a class member a faster operation than an interface method invocation.  Traits get compiled to interfaces and therefore may pay a slight performance overhead.  However you should make this choice only if you know that the trait in question constitutes a performance bottleneck and have evidence that using a class instead actually solves the problem.
+// Trait - if you don't know.  It's more idiomatic/easily reusable and you can easily switch later.
