@@ -1,5 +1,5 @@
 class Thing {
-  // basic class definition - include _fields_ and _methods_ here which are collectively called _ members_
+  // basic class definition - include _fields_ and _methods_ here which are collectively called _members_
 
   // Fields aka instance variables (hold state)
   val num: Int = 1

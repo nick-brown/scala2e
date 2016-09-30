@@ -13,12 +13,12 @@ object Chapter8 extends App {
   // _ can be used as a standin for whatever value is passed in
   println(lst.map(_ + 2))
 
-  // Multiple underscores mean multiple pa- rameters, not reuse of a single parameter repeatedly. The first underscore represents the first parameter, the second underscore the second parameter, the third underscore the third parameter, and so on.
+  // Multiple underscores mean multiple parameters, not reuse of a single parameter repeatedly. The first underscore represents the first parameter, the second underscore the second parameter, the third underscore the third parameter, and so on.
   val f = (_: Int) + (_:Int)
 
   println(f(2, 3)) // 5
 
-  // Partiall applied function, _apply_ println function to arguments
+  // Partially applied function, _apply_ println function to arguments
   // use the underscore to stand in for an entire arguments list 
   lst.foreach(println _)
 
@@ -41,7 +41,7 @@ object Chapter8 extends App {
   println(sum3And5(1)) // 9
 
   // in this function literal lst is a _free_ _variable_ because the function literal itself does not give meaning to it.  The n variable, by contrast, is a _bound_ _variable_ because it does have a meaning in the context of the function
-  // The function value (the object) that’s created at runtime from this function literal is called a closure. The name arises from the act of “closing” the func- tion literal by “capturing” the bindings of its free variables. A function literal with no free variables, such as (x: Int) => x + 1 , is called a closed term, where a term is a bit of source code. Thus a function value created at run- time from this function literal is not a closure in the strictest sense, because (x: Int) => x + 1 is already closed as written. But any function literal with free variables, such as (x: Int) => x + more , is an open term. Therefore, any function value created at runtime from (x: Int) => x + more will by definition require that a binding for its free variable, more , be captured. The resulting function value, which will contain a reference to the captured more variable, is called a closure, therefore, because the function value is the end product of the act of closing the open term, (x: Int) => x + more
+  // The function value (the object) that’s created at runtime from this function literal is called a closure. The name arises from the act of “closing” the function literal by "capturing" the bindings of its free variables. A function literal with no free variables, such as (x: Int) => x + 1 , is called a closed term, where a term is a bit of source code. Thus a function value created at runtime from this function literal is not a closure in the strictest sense, because (x: Int) => x + 1 is already closed as written. But any function literal with free variables, such as (x: Int) => x + more , is an open term. Therefore, any function value created at runtime from (x: Int) => x + more will by definition require that a binding for its free variable, more , be captured. The resulting function value, which will contain a reference to the captured more variable, is called a closure, therefore, because the function value is the end product of the act of closing the open term, (x: Int) => x + more
   val getFirstList = (n: Int) => lst(n)
 
   // will accept 0+ String arguments and turn it into an Array of the chosen type

@@ -11,7 +11,7 @@ object Chapter9 extends App {
 
   def sum(x: Int, y: Int): Int = x + y
   
-  // currying can be thought of as a single function applied to mutlitple lists of arguments
+  // currying can be thought of as a single function applied to multiple lists of arguments
   def curriedSum(x: Int)(y: Int): Int = x + y
 
   println(curriedSum(1)(2))
