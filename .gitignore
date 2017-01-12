@@ -2,3 +2,4 @@
 *.swo
 classes/
 target/
+*.class

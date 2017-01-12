@@ -80,5 +80,7 @@ object Chapter15 extends App {
     def variableBinding(x: Any) = x match {
       case UnOp("abs", e @ UnOp("abs", _)) => e
     } 
+
+    // A case sequence is a function literal with multiple entry points.  Each case is an entry point to the function and the parameters are specified with the pattern.  The body of each entry point is to the right-hand side of the case
   }
 }
