@@ -62,5 +62,6 @@ object Chapter16 extends App {
     // useful for transforming one data structure to another
     // this works the same as numMap.values
     (List[Int]() /: numMap)((acc, num) => num._2 :: acc) // List(1,2,3,4)
+    (numMap :\ List[Int]())((num, acc) => num._2 :: acc) // List(1,2,3,4)
   }
 }
